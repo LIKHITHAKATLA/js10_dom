@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 20%;
+            height: 200px;
+            padding: 20px;
+            
+        }
+        .imgclass{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btns{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            
+        }
+        .btn{
+            padding: 5px 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var p = document.createElement("p")
+        p.classList.add("imgclass")
+
+
+        var img1 = document.createElement("img");
+        img1.setAttribute('src',"assets/html.png")
+        img1.setAttribute("id", "img"); 
+        p.append(img1)
+        document.body.append(p)
+        
+        var div = document.createElement("div")
+        div.classList.add("btns")
+
+        list = ["html" , "css" , "react" , "python"]
+        functionn = {
+            html : htmlfun,
+            css : cssfun, 
+            react : reactfun,
+            python : pythonfun
+        }
+
+        for(i=0 ; i < list.length; i++){
+        var btn1 = document.createElement('button')
+        btn1.innerText = list[i]
+        div.classList.add("btn")
+
+        btn1.addEventListener("click", functionn[list[i]]);
+        div.append(btn1)
+        }
+        document.body.append(div)
+        console.log(div)
+
+        function htmlfun() {
+            let img = document.getElementById("img");
+            img.setAttribute("src","assets/html.png");
+        }
+        function cssfun() {
+            let img = document.getElementById("img");
+            img.setAttribute("src","assets/css.jpeg");
+    }
+        function reactfun(){
+            let img = document.getElementById("img");
+            img.setAttribute("src","assets/react.png");
+    }
+        function pythonfun(){
+            let img = document.getElementById("img");
+            img.setAttribute("src","assets/python.png");
+
+        }
+    </script>
+</body>
+</html>
